@@ -20,13 +20,11 @@ spec:
     namespace: app1-uat
   
   syncPolicy:
-    # Manual sync for UAT
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
     syncOptions:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
   
-  ignoreDifferences:
-    - group: apps
-      kind: Deployment
-      jsonPointers:
-        - /spec/replicas

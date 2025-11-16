@@ -16,7 +16,6 @@ replicas:
 
 patches:
   - path: patches/deployment-patch.yaml
-  - path: patches/ingress.yaml
 
 configMapGenerator:
   - name: app1-html
