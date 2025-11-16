@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/solas98/kustomize-demo.git
     targetRevision: main
-    path: argocd-bootstrap/uat/argocd-apps
+    path: argocd/uat/argocd-apps
     directory:
       recurse: true
   
