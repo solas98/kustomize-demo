@@ -16,6 +16,7 @@ replicas:
 
 patches:
   - path: patches/deployment-patch.yaml
+  - path: patches/service-patch.yaml
 
 configMapGenerator:
   - name: app1-html
