@@ -7,7 +7,7 @@ spec:
   description: UAT applications
   
   sourceRepos:
-    - https://github.com/yourorg/gitops-config-repo
+    - https://github.com/solas98/kustomize-demo.git
   
   destinations:
     - namespace: '*'
