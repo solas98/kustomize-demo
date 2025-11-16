@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2
+  namespace: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: uat-deployments
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: apps-uat
+  
+  source:
+    repoURL: https://github.com/solas98/kustomize-demo.git
+    targetRevision: main
+    path: apps/app2/overlays/uat
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app2-uat
+  
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

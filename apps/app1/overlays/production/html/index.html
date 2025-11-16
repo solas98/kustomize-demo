@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App1 - Production</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            text-align: center;
+            color: white;
+        }
+        h1 { font-size: 3em; margin: 0; }
+        p { font-size: 1.5em; }
+        .env { 
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .version {
+            margin-top: 10px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .status {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 App1</h1>
+        <p>Simple Nginx Application</p>
+        <div class="env">Environment: <strong>PRODUCTION</strong></div>
+        <div class="version">Site: Primary</div>
+        <div class="status">⚠️ Passive Mode (0 replicas)</div>
+    </div>
+</body>
+</html>

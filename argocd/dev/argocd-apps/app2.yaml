@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app2
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: apps-dev
+  
+  source:
+    repoURL: https://github.com/solas98/kustomize-demo.git
+    targetRevision: main
+    path: apps/app2/overlays/dev
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app2-dev
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
