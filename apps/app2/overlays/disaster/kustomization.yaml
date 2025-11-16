@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: app2-prod
+
+resources:
+  - ../../base
+
+images:
+  - name: nginx
+    newTag: 1.25-alpine  # Must match prod
+
+replicas:
+  - name: app2
+    count: 3  # Active in DR
+
+patches:
+  - path: patches/deployment-patch.yaml
+  - path: patches/ingress.yaml
+  - path: patches/hpa.yaml
+  - path: patches/pdb.yaml
+
+configMapGenerator:
+  - name: app2-html
+    behavior: replace
+    files:
+      - index.html=html/index.html
+
+commonLabels:
+  environment: production
+  site: disaster-recovery
